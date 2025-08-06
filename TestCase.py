@@ -3,7 +3,8 @@ class TestCase:
         self.name = name
 
     def setUp(self):
-        pass
+        self.wasRun = None
+        self.wasSetup = 1
 
     def run(self):
         self.setUp()
