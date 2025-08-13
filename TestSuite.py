@@ -5,8 +5,6 @@ class TestSuite:
     def add(self, test):
         self.tests.append(test)
 
-    def run(self):
-        results = TestResult()
+    def run(self, result):
         for test in self.tests:
             test.run(result)
-        return results
