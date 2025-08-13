@@ -6,17 +6,20 @@ from WasRun import WasRun
 class TestCaseTest(TestCase):
     def testTemplateMethod(self):
         self.test = WasRun("testMethod")
-        self.test.run()
+        result = TestResult()
+        self.test.run(result)
         assert ("setUp testMethod tearDown " == self.test.log)
 
     def testResult(self):
         test = WasRun("testMethod")
-        result = test.run()
+        result = TestResult()
+        test.run(result)
         assert("1 run, 0 failed" == result.summary())
 
     def testFailedResult(self):
         test= WasRun("testBrokenMethod")
-        result= test.run()
+        result = TestResult()
+        test.run(result)
         assert("1 run, 1 failed" == result.summary())
 
     def testFailedResultFormatting(self):
