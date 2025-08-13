@@ -1,4 +1,5 @@
 from TestCase import TestCase
+from TestResult import TestResult
 from WasRun import WasRun
 
 class TestCaseTest(TestCase):
@@ -26,3 +27,4 @@ class TestCaseTest(TestCase):
 TestCaseTest("testTemplateMethod").run()
 TestCaseTest("testResult").run()
 TestCaseTest("testFailedResult").run()
+TestCaseTest("testFailedResultFormatting").run()
