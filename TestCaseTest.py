@@ -1,5 +1,6 @@
 from TestCase import TestCase
 from TestResult import TestResult
+from TestSuite import TestSuite
 from WasRun import WasRun
 
 class TestCaseTest(TestCase):
@@ -32,7 +33,12 @@ class TestCaseTest(TestCase):
         result= suite.run(result)
         assert("2 run, 1 failed" == result.summary())
 
-print(TestCaseTest("testTemplateMethod").run().summary())
-print(TestCaseTest("testResult").run().summary())
-print(TestCaseTest("testFailedResult").run().summary())
-print(TestCaseTest("testFailedResultFormatting").run().summary())
+suite = TestSuite()
+suite.add(TestCaseTest("testTemplateMethod"))
+suite.add(TestCaseTest("testResult"))
+suite.add(TestCaseTest("testFailedResult"))
+suite.add(TestCaseTest("testFailedResultFormatting"))
+suite.add(TestCaseTest("testSuite"))
+result = TestResult()
+suite.run(result)
+print(result.summary())
